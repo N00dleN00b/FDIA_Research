@@ -45,11 +45,11 @@ fdia-gnn/
 
 ```bash
 python -m venv .venv
-source .venv/bin/activate          # Windows: .venv\Scripts\activate
+source .venv/bin/activate      
 pip install -r requirements.txt
-python -m pytest                   # 13 tests should pass
-python scripts/generate_data.py --samples 200 --out data/small.npz      # ~2 min
-python scripts/run_baselines.py --data data/small.npz --epochs 5        # smoke run
+python -m pytest                   
+python scripts/generate_data.py --samples 200 --out data/small.npz      
+python scripts/run_baselines.py --data data/small.npz --epochs 5        
 ```
 
 Full procedure: [docs/TEST_PROCEDURE.md](docs/TEST_PROCEDURE.md).
