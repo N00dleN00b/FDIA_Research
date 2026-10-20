@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+fdia-env/
+
+# Data: the main dataset (~10 MB) IS committed; scratch/partial files are not
+data/*.part*.npz
+data/small*.npz
+data/*.log
+data/generate_log.txt
+
+# Model checkpoints
+checkpoints/
+*.pt
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/settings.json
+!.vscode/launch.json
+!.vscode/extensions.json

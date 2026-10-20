@@ -1,0 +1,278 @@
+{
+  "config": {
+    "data": "C:\\Users\\numar\\fdia-gnn\\data\\fdia_dataset_ieee118.npz",
+    "models": [
+      "mlp",
+      "gcn",
+      "ggnn",
+      "ggnn_gat"
+    ],
+    "split": "random",
+    "seeds": [
+      0
+    ],
+    "epochs": 100,
+    "patience": 15,
+    "lr": 0.001,
+    "bs": 64,
+    "hidden": 64,
+    "adj": "log",
+    "tag": null
+  },
+  "summary": {
+    "mlp": {
+      "f1": {
+        "mean": 0.03069466882067851,
+        "std": 0.0
+      },
+      "roc_auc": {
+        "mean": 0.5691036058617112,
+        "std": 0.0
+      },
+      "precision": {
+        "mean": 0.016775560656895637,
+        "std": 0.0
+      },
+      "recall": {
+        "mean": 0.18026565464895636,
+        "std": 0.0
+      },
+      "MAR": {
+        "mean": 0.8197343453510436,
+        "std": 0.0
+      },
+      "FAR": {
+        "mean": 0.10590987769387328,
+        "std": 0.0
+      },
+      "accuracy": {
+        "mean": 0.8870056497175142,
+        "std": 0.0
+      },
+      "sample_accuracy": {
+        "mean": 0.46444444444444444,
+        "std": 0.0
+      },
+      "sample_detection_rate": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "sample_false_alarm_rate": {
+        "mean": 1.0,
+        "std": 0.0
+      }
+    },
+    "gcn": {
+      "f1": {
+        "mean": 0.02511373976342129,
+        "std": 0.0
+      },
+      "roc_auc": {
+        "mean": 0.5912054841896716,
+        "std": 0.0
+      },
+      "precision": {
+        "mean": 0.012865333519787442,
+        "std": 0.0
+      },
+      "recall": {
+        "mean": 0.523719165085389,
+        "std": 0.0
+      },
+      "MAR": {
+        "mean": 0.476280834914611,
+        "std": 0.0
+      },
+      "FAR": {
+        "mean": 0.4028113290091872,
+        "std": 0.0
+      },
+      "accuracy": {
+        "mean": 0.5964595103578154,
+        "std": 0.0
+      },
+      "sample_accuracy": {
+        "mean": 0.46444444444444444,
+        "std": 0.0
+      },
+      "sample_detection_rate": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "sample_false_alarm_rate": {
+        "mean": 1.0,
+        "std": 0.0
+      }
+    },
+    "ggnn": {
+      "f1": {
+        "mean": 0.032654094418428044,
+        "std": 0.0
+      },
+      "roc_auc": {
+        "mean": 0.5720273077597605,
+        "std": 0.0
+      },
+      "precision": {
+        "mean": 0.017493897477624084,
+        "std": 0.0
+      },
+      "recall": {
+        "mean": 0.24478178368121442,
+        "std": 0.0
+      },
+      "MAR": {
+        "mean": 0.7552182163187856,
+        "std": 0.0
+      },
+      "FAR": {
+        "mean": 0.13780838072774998,
+        "std": 0.0
+      },
+      "accuracy": {
+        "mean": 0.8560640301318267,
+        "std": 0.0
+      },
+      "sample_accuracy": {
+        "mean": 0.46444444444444444,
+        "std": 0.0
+      },
+      "sample_detection_rate": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "sample_false_alarm_rate": {
+        "mean": 1.0,
+        "std": 0.0
+      }
+    },
+    "ggnn_gat": {
+      "f1": {
+        "mean": 0.026337448559670785,
+        "std": 0.0
+      },
+      "roc_auc": {
+        "mean": 0.5937187691418575,
+        "std": 0.0
+      },
+      "precision": {
+        "mean": 0.01370930051409877,
+        "std": 0.0
+      },
+      "recall": {
+        "mean": 0.33396584440227706,
+        "std": 0.0
+      },
+      "MAR": {
+        "mean": 0.6660341555977229,
+        "std": 0.0
+      },
+      "FAR": {
+        "mean": 0.24084606166663497,
+        "std": 0.0
+      },
+      "accuracy": {
+        "mean": 0.7549340866290019,
+        "std": 0.0
+      },
+      "sample_accuracy": {
+        "mean": 0.46444444444444444,
+        "std": 0.0
+      },
+      "sample_detection_rate": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "sample_false_alarm_rate": {
+        "mean": 1.0,
+        "std": 0.0
+      }
+    }
+  },
+  "runs": {
+    "mlp": [
+      {
+        "accuracy": 0.8870056497175142,
+        "precision": 0.016775560656895637,
+        "recall": 0.18026565464895636,
+        "f1": 0.03069466882067851,
+        "MAR": 0.8197343453510436,
+        "FAR": 0.10590987769387328,
+        "tp": 95,
+        "fp": 5568,
+        "tn": 47005,
+        "fn": 432,
+        "sample_accuracy": 0.46444444444444444,
+        "sample_detection_rate": 1.0,
+        "sample_false_alarm_rate": 1.0,
+        "roc_auc": 0.5691036058617112,
+        "epochs_run": 17,
+        "train_seconds": 9.1,
+        "params": 4545
+      }
+    ],
+    "gcn": [
+      {
+        "accuracy": 0.5964595103578154,
+        "precision": 0.012865333519787442,
+        "recall": 0.523719165085389,
+        "f1": 0.02511373976342129,
+        "MAR": 0.476280834914611,
+        "FAR": 0.4028113290091872,
+        "tp": 276,
+        "fp": 21177,
+        "tn": 31396,
+        "fn": 251,
+        "sample_accuracy": 0.46444444444444444,
+        "sample_detection_rate": 1.0,
+        "sample_false_alarm_rate": 1.0,
+        "roc_auc": 0.5912054841896716,
+        "epochs_run": 42,
+        "train_seconds": 55.9,
+        "params": 8709
+      }
+    ],
+    "ggnn": [
+      {
+        "accuracy": 0.8560640301318267,
+        "precision": 0.017493897477624084,
+        "recall": 0.24478178368121442,
+        "f1": 0.032654094418428044,
+        "MAR": 0.7552182163187856,
+        "FAR": 0.13780838072774998,
+        "tp": 129,
+        "fp": 7245,
+        "tn": 45328,
+        "fn": 398,
+        "sample_accuracy": 0.46444444444444444,
+        "sample_detection_rate": 1.0,
+        "sample_false_alarm_rate": 1.0,
+        "roc_auc": 0.5720273077597605,
+        "epochs_run": 16,
+        "train_seconds": 29.6,
+        "params": 29505
+      }
+    ],
+    "ggnn_gat": [
+      {
+        "accuracy": 0.7549340866290019,
+        "precision": 0.01370930051409877,
+        "recall": 0.33396584440227706,
+        "f1": 0.026337448559670785,
+        "MAR": 0.6660341555977229,
+        "FAR": 0.24084606166663497,
+        "tp": 176,
+        "fp": 12662,
+        "tn": 39911,
+        "fn": 351,
+        "sample_accuracy": 0.46444444444444444,
+        "sample_detection_rate": 1.0,
+        "sample_false_alarm_rate": 1.0,
+        "roc_auc": 0.5937187691418575,
+        "epochs_run": 54,
+        "train_seconds": 132.5,
+        "params": 33729
+      }
+    ]
+  }
+}

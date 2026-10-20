@@ -1,0 +1,51 @@
+{
+  "samples": 3000,
+  "buses": 118,
+  "attacked_sample_rate": 0.5046666666666667,
+  "attacked_node_rate": 0.0106045197740113,
+  "buses_attacked_per_attacked_sample": 2.4795244385733155,
+  "nan_node_rows": 175,
+  "samples_with_nan": 129,
+  "unique_topologies": 987,
+  "edges_min": 162,
+  "edges_max": 166,
+  "isolated_buses_per_sample_max": 6,
+  "symmetric_adjacency": true,
+  "shapes": {
+    "x": [
+      3000,
+      118,
+      4
+    ],
+    "a": [
+      3000,
+      118,
+      118
+    ],
+    "y": [
+      3000,
+      118
+    ]
+  },
+  "feature_mean": {
+    "V": 0.9846000075340271,
+    "theta": 0.33709999918937683,
+    "P": -0.017000000923871994,
+    "Q": -0.015200000256299973
+  },
+  "feature_std": {
+    "V": 0.032600000500679016,
+    "theta": 0.40549999475479126,
+    "P": 1.5764000415802002,
+    "Q": 0.45339998602867126
+  },
+  "checks": {
+    "x has 4 features": true,
+    "a is square and matches buses": true,
+    "y matches x": true,
+    "labels are 0/1": true,
+    "adjacency symmetric": true,
+    "no NaN features": false,
+    "no isolated buses": false
+  }
+}
