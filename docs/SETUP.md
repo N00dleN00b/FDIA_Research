@@ -97,6 +97,6 @@ Good habits:
 It's in the repo: once you push, your professor gets it with `git pull` (or the GitHub "Download" button on the file).
 Anyone can also regenerate it identically:
 ```
-python scripts/generate_data.py --samples 3000 --workers 2 --seed 42
+python scripts/generate_data.py --samples 3000 --seed 42
 ```
-(Same seed **and** same `--workers` value gives the same data.)
+(The same seed gives the same data, whatever the number of workers.)

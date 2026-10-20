@@ -15,6 +15,19 @@ class MLP(nn.Module):
         return self.net(x).squeeze(-1)
 
 
+class CNN(nn.Module):
+    """Topology-blind 1-D CNN over the bus axis (the 'data-driven CNN' baseline in Li et al. 2023).
+    Ignores the adjacency matrix: buses are treated as a fixed-order sequence."""
+    def __init__(self, in_dim, hidden=64, dropout=0.2):
+        super().__init__()
+        self.net = nn.Sequential(nn.Conv1d(in_dim, hidden, 3, padding=1), nn.ReLU(), nn.Dropout(dropout),
+                                 nn.Conv1d(hidden, hidden, 3, padding=1), nn.ReLU(),
+                                 nn.Conv1d(hidden, 1, 1))
+
+    def forward(self, x, a):
+        return self.net(x.transpose(1, 2)).squeeze(1)
+
+
 class GCN(nn.Module):
     """Kipf & Welling (ICLR 2017): H' = sigma(A_hat H W). a must already be renormalized."""
     def __init__(self, in_dim, hidden=64, layers=3, dropout=0.2):
@@ -92,7 +105,7 @@ class GGNN_GAT(nn.Module):
         return self.out(h).squeeze(-1)
 
 
-MODELS = {"mlp": MLP, "gcn": GCN, "ggnn": GGNN, "ggnn_gat": GGNN_GAT}
+MODELS = {"mlp": MLP, "cnn": CNN, "gcn": GCN, "ggnn": GGNN, "ggnn_gat": GGNN_GAT}
 
 
 def build(name, in_dim, **kw):

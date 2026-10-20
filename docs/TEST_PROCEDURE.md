@@ -8,7 +8,7 @@ All commands run from the project folder with the `.venv` activated.
 ```
 python -m pytest -v
 ```
-**Pass:** 13 passed. These check, without any real data:
+**Pass:** 24 passed (14 core + 10 for the Li et al. replication, see REPLICATION_LI2023.md). These check, without any real data:
 - data loading, NaN cleaning, splits partition the data, the topology split never leaks a topology into test
 - every model's forward and backward pass, and that attention only looks at real neighbours
 - metrics, including the reason we don't trust accuracy alone (all-normal prediction = 99% accuracy, F1 0)
@@ -22,7 +22,7 @@ python scripts/generate_data.py --samples 200 --out data/small.npz
 ```
 Full set (~20–40 min, or use the professor's file):
 ```
-python scripts/generate_data.py --samples 3000 --workers 2 --seed 42
+python scripts/generate_data.py --samples 3000 --seed 42
 ```
 
 ## Step 3 — Dataset sanity check (10 s)

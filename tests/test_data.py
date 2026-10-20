@@ -33,3 +33,12 @@ def test_normalized_adjacency_symmetric_with_self_loops(toy_dataset):
     Ah = D.normalize_adjacency(A)
     assert np.allclose(Ah, Ah.transpose(0, 2, 1))
     assert (np.diagonal(Ah, axis1=1, axis2=2) > 0).all()
+
+
+def test_per_bus_stats_leave_constant_features_unscaled():
+    X = np.random.default_rng(0).normal(size=(20, 3, 4)).astype(np.float32)
+    X[:, 1, 2] = 0.0                                   # e.g. a zero-injection bus
+    mean, std = D.feature_stats(X, np.arange(20), "per_bus")
+    assert mean.shape == (3, 4) and std[1, 2] == 1.0
+    Xn = D.normalize_features(X, mean, std)
+    assert np.isfinite(Xn).all() and np.allclose(Xn[:, 1, 2], 0)

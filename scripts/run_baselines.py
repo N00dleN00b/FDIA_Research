@@ -28,6 +28,9 @@ p.add_argument("--lr", type=float, default=1e-3)
 p.add_argument("--bs", type=int, default=64)
 p.add_argument("--hidden", type=int, default=64)
 p.add_argument("--adj", default="log", choices=["log", "binary", "raw"])
+p.add_argument("--frac", nargs=3, type=float, default=[0.7, 0.15, 0.15],
+               help="train/val/test fractions, e.g. 0.675 0.075 0.25 for Li et al.'s 75/25 split")
+p.add_argument("--norm", default="global", choices=["global", "per_bus"], help="feature scaling (per_bus = each bus vs its own normal range)")
 p.add_argument("--tag", default=None)
 a = p.parse_args()
 
@@ -37,7 +40,7 @@ print(f"device={device}  data={a.data}  split={a.split}  seeds={a.seeds}")
 
 runs = {}
 for seed in a.seeds:
-    prep = prepare(a.data, a.split, seed, a.adj)
+    prep = prepare(a.data, a.split, seed, a.adj, tuple(a.frac), a.norm)
     tr, va, te = prep["splits"]
     if seed == a.seeds[0]:
         print(f"samples train/val/test = {len(tr)}/{len(va)}/{len(te)}  NaN rows fixed: {prep['n_nan']}")

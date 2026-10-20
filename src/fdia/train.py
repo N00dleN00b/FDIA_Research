@@ -13,11 +13,11 @@ def set_seed(seed):
     np.random.seed(seed); torch.manual_seed(seed)
 
 
-def prepare(path, split="random", seed=0, adj_weighting="log"):
+def prepare(path, split="random", seed=0, adj_weighting="log", frac=(0.7, 0.15, 0.15), norm="global"):
     X, A, Y = D.load_npz(path)
     X, n_nan = D.clean(X)
-    tr, va, te = D.make_splits(A, split, seed)
-    mean, std = D.feature_stats(X, tr)
+    tr, va, te = D.make_splits(A, split, seed, frac)
+    mean, std = D.feature_stats(X, tr, norm)
     Xn = D.normalize_features(X, mean, std)
     Ahat = D.normalize_adjacency(A, adj_weighting)
     return dict(X=Xn, A=Ahat, Y=Y, splits=(tr, va, te), n_nan=n_nan)

@@ -56,9 +56,21 @@ def make_splits(A, mode="random", seed=0, frac=(0.7, 0.15, 0.15)):
     return np.array(train), np.array(val), np.array(test)
 
 
-def feature_stats(X, idx):
-    flat = X[idx].reshape(-1, X.shape[-1])
-    return flat.mean(0), flat.std(0) + 1e-8
+def feature_stats(X, idx, mode="global"):
+    """Mean/std from training samples only.
+
+    global  : one mean/std per feature, shared by all buses (original behaviour).
+    per_bus : mean/std per (bus, feature). The models cannot tell buses apart, so this is how
+              they learn each bus's normal range (e.g. its own P/Q ratio). Constant features
+              (std ~ 0, e.g. a bus that always reads 0) are left unscaled.
+    """
+    if mode == "global":
+        flat = X[idx].reshape(-1, X.shape[-1])
+        return flat.mean(0), flat.std(0) + 1e-8
+    if mode == "per_bus":
+        sd = X[idx].std(0)
+        return X[idx].mean(0), np.where(sd < 1e-6, 1.0, sd)
+    raise ValueError(mode)
 
 
 def normalize_features(X, mean, std):
